@@ -6,8 +6,8 @@ never modified, and no sudo is needed.
 | Side | Setting | Rendering |
 |---|---|---|
 | Bayrou, centre | `center` (default) | centred code, indentation on the left of the code |
-| Zemmour, right | `right` | right-aligned code, indentation on the left of the code |
-| Poutou, left | `left` | left-aligned code, indentation moved to the right of the code (dotted) |
+| Zemmour, right | `right` | right-aligned code, indentation moved to the right of the code (dotted) |
+| Poutou, left | `left` | left-aligned code, inverted indentation: the most indented lines go fully left, unindented lines get the deepest indent |
 
 ## Usage
 

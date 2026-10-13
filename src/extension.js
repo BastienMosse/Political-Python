@@ -1,8 +1,8 @@
 // Political Python — un Python aligné au centre, à droite ou à gauche, via CSS, sans sudo.
 //
 // - Bayrou (centre) : code centré, indentation à gauche du texte.
-// - Zemmour (droite) : code aligné à droite, indentation à gauche du texte.
-// - Poutou (gauche) : code collé à gauche, indentation déplacée à droite du texte.
+// - Zemmour (droite) : code aligné à droite, indentation déplacée à droite du texte.
+// - Poutou (gauche) : code à gauche, indentation inversée (les lignes les plus indentées passent à gauche).
 //
 // Voir README.md (section « Fonctionnement ») pour le détail de la technique.
 

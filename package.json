@@ -53,9 +53,9 @@
             "right"
           ],
           "enumDescriptions": [
-            "Poutou, à gauche : code aligné à gauche, indentation à droite du code.",
+            "Poutou, à gauche : code aligné à gauche, indentation inversée (les lignes les plus indentées passent tout à gauche).",
             "Bayrou, au centre : code centré, indentation à gauche du code.",
-            "Zemmour, à droite : code aligné à droite, indentation à gauche du code."
+            "Zemmour, à droite : code aligné à droite, indentation à droite du code."
           ],
           "default": "center",
           "description": "Give your Python code a political side: centre (Bayrou), right (Zemmour) or left (Poutou). Purely visual, no sudo."

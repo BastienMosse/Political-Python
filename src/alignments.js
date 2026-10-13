@@ -13,14 +13,14 @@ const ALIGNMENTS = [
     name: 'Zemmour',
     icon: '$(arrow-right)',
     label: '$(arrow-right) Zemmour — à droite',
-    description: 'code à droite, indentation à gauche',
+    description: 'code à droite, indentation à droite',
   },
   {
     value: 'left',
     name: 'Poutou',
     icon: '$(arrow-left)',
     label: '$(arrow-left) Poutou — à gauche',
-    description: 'code à gauche, indentation à droite',
+    description: 'code à gauche, indentation inversée',
   },
 ];
 

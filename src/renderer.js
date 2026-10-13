@@ -2,7 +2,7 @@
 
 const vscode = require('vscode');
 const config = require('./config');
-const { lineDecorations } = require('./layout');
+const { lineDecorations, maxIndentWidth } = require('./layout');
 const { DecorationTypes } = require('./decorations');
 
 class Renderer {
@@ -28,10 +28,13 @@ class Renderer {
       const doc = editor.document;
       const tabSize = typeof editor.options.tabSize === 'number' ? editor.options.tabSize : 4;
       const alignment = config.alignment();
-      for (let i = 0; i < doc.lineCount; i++) {
-        for (const deco of lineDecorations(doc.lineAt(i).text, alignment, tabSize)) {
-          if (deco.kind === 'offset') add(this.types.offset(deco.width), new vscode.Range(i, 0, i, 0));
+      const texts = Array.from({ length: doc.lineCount }, (_, i) => doc.lineAt(i).text);
+      const maxIndent = alignment === 'left' ? maxIndentWidth(texts, tabSize) : 0;
+      for (let i = 0; i < texts.length; i++) {
+        for (const deco of lineDecorations(texts[i], alignment, tabSize, maxIndent)) {
+          if (deco.kind === 'offset') add(this.types.offset(deco.width), new vscode.Range(i, deco.at, i, deco.at));
           if (deco.kind === 'hide') add(this.types.hide(), new vscode.Range(i, deco.from, i, deco.to));
+          if (deco.kind === 'pad') add(this.types.pad(deco.width), new vscode.Range(i, deco.at, i, deco.at));
           if (deco.kind === 'trail') add(this.types.trail(deco.width), new vscode.Range(i, deco.at, i, deco.at));
         }
       }

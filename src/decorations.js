@@ -33,19 +33,24 @@ class DecorationTypes {
     return type;
   }
 
-  /** Centre / droite : élément invisible en tête de ligne qui pousse le texte. */
+  /** Centre / droite : élément invisible devant le texte qui le pousse. */
   offset(width) {
     return this.get(`offset:${width}`, () => ({
       before: { contentText: '​', margin: offsetMargin(config.alignment(), width, this.gap()) },
     }));
   }
 
-  /** Gauche : masque l'indentation en début de ligne. */
+  /** Gauche : indentation inversée, affichée comme une marge devant le texte. */
+  pad(width) {
+    return this.get(`pad:${width}`, () => ({ before: { contentText: '\u200b', margin: `0 0 0 ${width}ch` } }));
+  }
+
+  /** Gauche / droite : masque l'indentation réelle en début de ligne. */
   hide() {
     return this.get('hide', () => ({ textDecoration: 'none; display: none;' }));
   }
 
-  /** Gauche : réaffiche l'indentation après le texte, en pointillés discrets. */
+  /** Droite : réaffiche l'indentation après le texte, en pointillés discrets. */
   trail(width) {
     return this.get(`trail:${width}`, () => ({
       after: { contentText: '·'.repeat(width), color: new vscode.ThemeColor('editorWhitespace.foreground') },
