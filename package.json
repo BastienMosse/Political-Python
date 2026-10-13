@@ -1,0 +1,71 @@
+{
+  "name": "political-python",
+  "displayName": "Political Python",
+  "description": "Give your Python code a political side: centre (Bayrou), right (Zemmour) or left (Poutou). Purely visual, no sudo.",
+  "version": "1.0.0",
+  "publisher": "bastienmosse",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "politicalPython.toggle",
+        "title": "Political Python: Activer / désactiver"
+      },
+      {
+        "command": "politicalPython.chooseAlignment",
+        "title": "Political Python: Choisir son bord politique (Bayrou / Zemmour / Poutou)"
+      }
+    ],
+    "configuration": {
+      "title": "Political Python",
+      "properties": {
+        "politicalPython.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Give your Python code a political side: centre (Bayrou), right (Zemmour) or left (Poutou). Purely visual, no sudo."
+        },
+        "politicalPython.languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "python"
+          ],
+          "description": "Give your Python code a political side: centre (Bayrou), right (Zemmour) or left (Poutou). Purely visual, no sudo."
+        },
+        "politicalPython.alignment": {
+          "type": "string",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "enumDescriptions": [
+            "Poutou, à gauche : code aligné à gauche, indentation à droite du code.",
+            "Bayrou, au centre : code centré, indentation à gauche du code.",
+            "Zemmour, à droite : code aligné à droite, indentation à gauche du code."
+          ],
+          "default": "center",
+          "description": "Give your Python code a political side: centre (Bayrou), right (Zemmour) or left (Poutou). Purely visual, no sudo."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "package": "npx @vscode/vsce package",
+    "install-local": "npm run package && code --install-extension political-python-$npm_package_version.vsix --force"
+  }
+}
