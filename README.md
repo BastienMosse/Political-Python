@@ -1,7 +1,7 @@
 # Political Python
 
-A VS Code extension that gives your Python code a political side. Purely visual: the file is
-never modified, and no sudo is needed.
+A VS Code extension that gives your Python code a political side.  
+Purely visual.
 
 | Side | Setting | Rendering |
 |---|---|---|
@@ -23,8 +23,6 @@ npm test               # unit tests for the layout logic (src/layout.js)
 npm run package        # build the .vsix
 npm run install-local  # build and install it into VS Code
 ```
-
-Or press `F5` in VS Code to open an Extension Development Host (try it on `examples/demo.py`).
 
 ```
 src/
